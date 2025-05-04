@@ -5,11 +5,14 @@ fetch('data/publications.json')
     const list = document.getElementById('publications-list');
     data.forEach(pub => {
       const li = document.createElement('li');
-      li.innerHTML = `<strong>${pub.title}</strong> — <em>${pub.authors}</em>. ${pub.journal}, ${pub.year}.`;
+      li.innerHTML = `
+        <em>${pub.authors}</em>. 
+        <strong><a href="${pub.link}" target="_blank" rel="noopener noreferrer">${pub.title}</a></strong>. 
+        ${pub.journal}, ${pub.year}.
+      `;
       list.appendChild(li);
     });
   })
   .catch(error => {
     console.error('Failed to load publications:', error);
   });
-
