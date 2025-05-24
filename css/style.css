@@ -18,6 +18,15 @@
   --text-white: #ffffff;
   --white: #ffffff;
   --black: #000000;
+
+  /*font sizes*/
+  --fs-s2: clamp(0.5rem, 0.7rem + 0.2vw, 0.75rem);
+  --fs-s1: clamp(0.75rem, 0.7rem + 0.2vw, 0.85rem);
+  --fs-base: clamp(0.85rem, 0.8rem + 0.25vw, 1rem);
+  --fs-l1: clamp(1rem, 0.9rem + 0.35vw, 1.2rem);
+  --fs-l2: clamp(1.1rem, 1rem + 0.4vw, 1.4rem);
+  --fs-l3: clamp(1.3rem, 1.1rem + 0.5vw, 1.6rem);
+  --fs-l4: clamp(1.5rem, 1.3rem + 0.6vw, 2rem);
 }
 
 body {
@@ -81,7 +90,7 @@ header {
 
 
 .section-title {
-  font-size: 1.5em;
+  font-size: var(--fs-l3);
   font-weight: bold;
   color: var(--text-color);
   background-color: transparent;
@@ -116,6 +125,7 @@ nav button {
   cursor: pointer;
   transition: 0.3s;
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+  font-size: var(--fs-s1);
 }
 
 nav button:hover {
@@ -143,7 +153,7 @@ nav button.active {
 }
 
 .content {
-  padding: 20px;
+  padding: 0.5vh 1vw;
 }
 
 .content article {
@@ -158,26 +168,26 @@ nav button.active {
 /* Section heading */
 .section-heading {
   display: inline-block;
-  font-size: 1.2em;
+  font-size: var(--fs-base);
   font-weight: bold;
   color: var(--text-color);
-  margin: 25px 0 10px;
+  margin: clamp(0.9rem, 2vw, 1.3rem) 0 clamp(0.45rem, 1vw, 0.5rem);
   padding: 6px 16px 6px 26px;  /* tighter vertical padding */
   border-radius: 8px;
   background: linear-gradient(to right, var(--cyan-light), #ffffff);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   position: relative;
-  line-height: 1.2;
+  line-height: 1.1;
 }
 
 /* Decorative vertical accent bar */
 .section-heading::before {
   content: '';
   position: absolute;
-  left: 10px;
+  left: clamp(0.4rem, 1vw, 0.6rem);
   top: 50%;
   transform: translateY(-50%);
-  width: 5px;
+  width: clamp(3px, 0.5vw, 5px);
   height: 55%;
   background: linear-gradient(to bottom, var(--navy), var(--navy-lighter));
   border-radius: 3px;
@@ -188,12 +198,14 @@ nav button.active {
 .fancy-bullets {
   list-style: none;
   padding-left: 0;
+  margin-bottom: 0;
+  margin-top: 0;
 }
 
 .fancy-bullets li {
   position: relative;
-  padding-left: 30px;
-  margin-bottom: 10px;
+  padding-left: clamp(1rem, 3vw, 1.8rem);
+  line-height: 1.4;
 }
 
 .fancy-bullets li::before {
@@ -201,7 +213,7 @@ nav button.active {
   position: absolute;
   left: 0;
   top: 0;
-  font-size: 1.2em;
+  font-size: var(--fs-base);
   color: var(--navy-light);
 }
 
@@ -209,11 +221,12 @@ nav button.active {
 .news-list {
   list-style: none;
   padding-left: 0;
+  margin-top: 0;
 }
 
 .news-list li {
-  margin-bottom: 8px;
-  padding-left: 25px;
+  line-height: 1.4;
+  padding-left: clamp(1rem, 3vw, 1.8rem);
   position: relative;
 }
 
@@ -222,7 +235,7 @@ nav button.active {
   left: 0;
   top: 0;
   color: #ff7f50;
-  font-size: 1.1em;
+  font-size: var(--fs-s1);
 }
 
 .hidden {
@@ -233,14 +246,14 @@ nav button.active {
   background-color: var(--navy);
   color: white;
   border: none;
-  border-radius: 15px;
-  padding: 8px 15px;
+  border-radius: clamp(8px, 1.5vw, 15px); /* Responsive rounding */
+  padding: clamp(0.15rem, 1vw, 0.3rem) clamp(0.5rem, 2vw, 0.6rem); /* Vertical | Horizontal */
+  font-size: var(--fs-s2); /* Responsive text size */
   font-weight: bold;
   cursor: pointer;
-  margin-top: 10px;
+  margin-top: clamp(0.15rem, 1vw, 0.3rem); /* Spacing from content above */
   transition: background 0.3s ease;
 }
-
 #showMoreBtn:hover {
   background-color: var(--navy-light);
 }
@@ -265,7 +278,7 @@ nav button.active {
   position: absolute;
   left: 0;
   top: 3px;
-  font-size: 1.4em;
+  font-size: var(--fs-l1);
   color: var(--navy-light);
 }
 
@@ -274,7 +287,7 @@ nav button.active {
 }
 
 .edu-year {
-  font-size: 0.9em;
+  font-size: var(--fs-s1);
   color: #555;
   font-style: italic;
 }
@@ -294,6 +307,7 @@ nav button.active {
   border-radius: 15px;
   box-shadow: 2px 2px 6px var(--nav-dark);
   padding: 5px 11px;
+  font-size: var(--fs-s1);
   font-weight: bold;
   cursor: pointer;
   transition: background 0.3s ease;
@@ -321,7 +335,7 @@ nav button.active {
 }
 
 .research-title {
-  font-size: 1.3em;
+  font-size: var(--fs-base);
   font-weight: bold;
   margin-bottom: 10px;
 }
@@ -342,6 +356,7 @@ nav button.active {
 .research-text {
   flex: 1;
   min-width: 250px;
+  font-size: var(--fs-base);
 }
 
 .research-desc-bullets {
@@ -357,7 +372,7 @@ nav button.active {
   margin-top: 15px;
   margin-bottom: 5px;
   font-weight: bold;
-  font-size: 1.05em;
+  font-size: var(--fs-s1);
   color: var(--navy);
 }
 
@@ -481,7 +496,7 @@ nav button.active {
   border-radius: 50%;
   text-align: center;
   line-height: 30px;
-  font-size: 0.9em;
+  font-size: var(--fs-base);
   flex-shrink: 0;
   box-shadow: 0 0 0 2px white;
 }
@@ -489,6 +504,7 @@ nav button.active {
 /* Text content */
 .pub-details {
   flex: 1;
+  font-size: var(--fs-base);
 }
 
 /* PDF link */
@@ -500,7 +516,7 @@ nav button.active {
   padding: 4px 8px;
   border-radius: 8px;
   text-decoration: none;
-  font-size: 0.85em;
+  font-size: var(--fs-s2);
   transition: background 0.3s ease;
 }
 
@@ -515,15 +531,15 @@ nav button.active {
 .custom-bullets {
   list-style: none;
   padding-left: 0;
-  margin-bottom: 2rem;
+  margin-bottom: 0;
+  margin-top: 0;
 }
 
 .custom-bullets li {
   position: relative;
   padding-left: 1.8em;
-  margin-bottom: 0.6em;
-  font-size: 1rem;
-  line-height: 1.5;
+  font-size: var(--fs-base);
+  line-height: 1.4;
 }
 
 /* Base bullet style */
@@ -531,7 +547,7 @@ nav button.active {
   content: "";
   position: absolute;
   left: 0;
-  top: 0.55em;
+  top: 0.3em;
   width: 0.75em;
   height: 0.75em;
   border-radius: 50%;
@@ -548,6 +564,26 @@ nav button.active {
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
 }
 
+/* Outreach */
+
+.custom-bullets.conference-talks li::before {
+  content: "🎤"; /* microphone icon for talks */
+  position: absolute;
+  left: 0;
+  top: 0.3em; /* slightly lower to align with text */
+  font-size: var(--fs-base);
+  color: var(--navy-light);
+  line-height: 1;
+}
+
+.custom-bullets.writing-competitions li::before {
+  content: "📝"; /* notebook emoji for writing */
+  position: absolute;
+  left: 0;
+  top: 0.12em;
+  font-size: var(--fs-base);
+  color: #6c63ff; /* a purple-blue tone */
+}
 
 /* === Responsive Adjustments === */
 @media screen and (max-width: 700px) {
@@ -588,6 +624,12 @@ nav button.active {
 /* Responsive: Mobile nav bar at bottom */
 /* === Mobile: Move nav to bottom === */
 @media screen and (max-width: 768px) {
+
+  .page-wrapper {
+    padding: 0 15px; /* or even 10px for tight screens */
+    margin: 10px auto;
+  }
+
   .section-header-row nav {
     position: fixed;
     bottom: 0;
@@ -606,13 +648,39 @@ nav button.active {
   nav button {
     flex: 1;
     padding: 0.6rem 0.4rem;
-    font-size: 0.9rem;
     border-radius: 5px;
+    margin: 0 2px;
   }
 
   .main-panel {
     padding-bottom: 70px; /* Space for bottom nav */
   }
+
+  .publication-list li {
+    /* Keep it as a row layout */
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 10px 14px;
+    gap: 10px;
+  }
+
+  .pub-number {
+    width: 26px;
+    height: 26px;
+    font-size: 0.75rem;
+    line-height: 26px;
+    flex-shrink: 0;
+  }
+
+  .pub-details {
+    font-size: 0.85rem;
+  }
+
+  .pub-link {
+    font-size: 0.75rem;
+    padding: 4px 6px;
+  }
+
 }
 
 
