@@ -8,183 +8,192 @@
 </head>
 <body>
   <div class="page-wrapper">
-    <aside class="sidebar">
-      <div class="sidebar-header">
-        <img src="../images/profile.jpg" alt="Profile Picture" />
-        <div class="sidebar-name">Dr. Jane Doe</div>
-        <button class="sidebar-toggle" aria-label="Toggle Info">
-          <ion-icon name="chevron-down"></ion-icon>
-          <span class="toggle-label">Show Contacts</span>
-        </button>
-      </div>
-      <div class="sidebar-details">
-        <p><strong>Email:</strong> jane.doe@example.edu</p>
-        <p><strong>Affiliation:</strong> Example University</p>
-      </div>
-    </aside>
 
+    <header class="page-header">
+    <!-- Place your wide research summary image or banner here -->
+    <img src="../images/dna.jpg" alt="Research Summary Banner" class="lab-banner" />
+    </header>
 
-    <div class="main-panel">
-      <header></header>
+    <div class="content-wrapper">
 
-        <div class="section-header-row">
-          <div class="section-title" id="section-title">About</div>
-          <!-- <div class="nav-wrapper"> -->
-            <nav>
-              <button class="active" onclick="showArticle('about', event)">
-                <span class="nav-icon">🏠</span>
-              </button>
-              <button onclick="showArticle('education', event)">Education</button>
-              <button onclick="showArticle('experience', event)">Experience</button>
-              <button onclick="showArticle('research', event)">Research</button>
-              <button onclick="showArticle('publications', event)">Publications</button>
-              <button onclick="showArticle('achievements', event)">Achievements</button>
-              <button onclick="showArticle('outreach', event)">Outreach</button>
-            </nav>
-          <!-- </div> -->
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <img src="../images/profile.jpg" alt="Profile Picture" />
+          <div class="sidebar-name">Dr. Jane Doe</div>
+          <button class="sidebar-toggle" aria-label="Toggle Info">
+            <ion-icon name="chevron-down"></ion-icon>
+            <span class="toggle-label">Show Contacts</span>
+          </button>
         </div>
+        <div class="sidebar-details">
+          <p><strong>Email:</strong> jane.doe@example.edu</p>
+          <p><strong>Affiliation:</strong> Example University</p>
+        </div>
+      </aside>
 
-      <main class="content">
-        <article id="about" class="active">
-          <p>Welcome to my academic webpage. I specialize in genetic regulation and molecular biology research.</p>
-          <h3 class="section-heading">Research Interests</h3>
-          <ul class="fancy-bullets">
-            <li>Gene expression regulation in eukaryotes</li>
-            <li>Single-cell RNA sequencing analysis</li>
-            <li>CRISPR-based genome engineering</li>
-            <li>Epigenetic mechanisms in development</li>
-          </ul>
 
-          <h3 class="section-heading">Recent News</h3>
-          <ul class="news-list">
-            <li><span class="news-icon">📰</span> Our lab's latest paper featured in Nature Genetics!</li>
-            <li><span class="news-icon">📰</span> Dr. Doe gave a keynote at the Global Genomics Summit.</li>
-            <li><span class="news-icon">📰</span> New postdoc joined our team — welcome, Alex!</li>
-            <li><span class="news-icon">📰</span> We received new NIH funding for CRISPR research.</li>
-            <li><span class="news-icon">📰</span> Undergraduate research opportunity opened for Fall.</li>
+      <div class="main-panel">
+        <!-- <header></header> -->
 
-            <li class="older-news hidden"><span class="news-icon">📰</span> Lab retreat photos uploaded to internal portal.</li>
-            <li class="older-news hidden"><span class="news-icon">📰</span> Poster presentation accepted at ASCB conference.</li>
-            <li class="older-news hidden"><span class="news-icon">📰</span> Journal club starting again next month!</li>
-          </ul>
-
-          <button id="showMoreBtn">Show More News</button>
-
-        </article>
-
-        <article id="education">
-          <ul class="education-list">
-            <li>
-              <span class="edu-icon">🎓</span>
-              <div class="edu-details">
-                <strong>Ph.D. in Molecular Biology</strong><br>
-                Department of Genetics, Harvard University<br>
-                <span class="edu-year">2015 – 2020</span>
-              </div>
-            </li>
-
-            <li>
-              <span class="edu-icon">📘</span>
-              <div class="edu-details">
-                <strong>M.Sc. in Biotechnology</strong><br>
-                School of Life Sciences, University of Chicago<br>
-                <span class="edu-year">2012 – 2014</span>
-              </div>
-            </li>
-
-            <li>
-              <span class="edu-icon">📗</span>
-              <div class="edu-details">
-                <strong>B.Sc. in Biochemistry</strong><br>
-                Department of Biological Sciences, UC Berkeley<br>
-                <span class="edu-year">2008 – 2012</span>
-              </div>
-            </li>
-          </ul>
-        </article>
-
-        <article id="experience">
-          <h3 class="section-heading">Teaching Experience</h3>
-          <ul class="fancy-bullets">
-            <li>Graduate Teaching Assistant – Harvard University (2016–2020)</li>
-            <li>Guest Lecturer – Advanced Molecular Biology, Harvard University (Spring 2019)</li>
-          </ul>
-        </article>
-
-        <article id="research">
-          <div class="research-filters">
-            <button class="research-filter active" data-category="all">All</button>
-            <button class="research-filter" data-category="ongoing">Ongoing</button>
-            <button class="research-filter" data-category="wetlab">Wetlab</button>
-            <button class="research-filter" data-category="computational">Computational</button>
+          <div class="section-header-row">
+            <div class="section-title" id="section-title">About</div>
+            <!-- <div class="nav-wrapper"> -->
+              <nav>
+                <button class="active" onclick="showArticle('about', event)">
+                  <span class="nav-icon">🏠</span>
+                </button>
+                <button onclick="showArticle('education', event)">Education</button>
+                <button onclick="showArticle('experience', event)">Experience</button>
+                <button onclick="showArticle('research', event)">Research</button>
+                <button onclick="showArticle('publications', event)">Publications</button>
+                <button onclick="showArticle('achievements', event)">Achievements</button>
+                <button onclick="showArticle('outreach', event)">Outreach</button>
+              </nav>
+            <!-- </div> -->
           </div>
-          <div id="research-projects" class="research-projects">
-            <!-- Projects will be dynamically loaded here -->
-          </div>
-        </article>
 
-        <article id="publications">
-          <!-- <div class="pub-filters">
-            <button class="pub-filter active" data-category="all">All</button>
-            <button class="pub-filter" data-category="journal">Journal</button>
-            <button class="pub-filter" data-category="conference">Conference</button>
-          </div> -->
+        <main class="content">
+          <article id="about" class="active">
+            <p>Welcome to my academic webpage. I specialize in genetic regulation and molecular biology research.</p>
+            <h3 class="section-heading">Research Interests</h3>
+            <ul class="fancy-bullets">
+              <li>Gene expression regulation in eukaryotes</li>
+              <li>Single-cell RNA sequencing analysis</li>
+              <li>CRISPR-based genome engineering</li>
+              <li>Epigenetic mechanisms in development</li>
+            </ul>
 
-          <ol id="publication-list" class="publication-list">
-            <!-- Publications will be dynamically inserted here -->
-          </ol>
-        </article>
+            <h3 class="section-heading">Recent News</h3>
+            <ul class="news-list">
+              <li><span class="news-icon">📰</span> Our lab's latest paper featured in Nature Genetics!</li>
+              <li><span class="news-icon">📰</span> Dr. Doe gave a keynote at the Global Genomics Summit.</li>
+              <li><span class="news-icon">📰</span> New postdoc joined our team — welcome, Alex!</li>
+              <li><span class="news-icon">📰</span> We received new NIH funding for CRISPR research.</li>
+              <li><span class="news-icon">📰</span> Undergraduate research opportunity opened for Fall.</li>
 
-        <article id="achievements">
-          <h3 class="section-heading">Awards</h3>
-          <ul class="custom-bullets awards">
-            <li>NIH Early Career Innovator Award (2023)</li>
-            <li>Jane Coffin Childs Memorial Fund Postdoctoral Award (2021)</li>
-            <li>Best Paper Award – ISMB Conference (2020)</li>
-          </ul>
+              <li class="older-news hidden"><span class="news-icon">📰</span> Lab retreat photos uploaded to internal portal.</li>
+              <li class="older-news hidden"><span class="news-icon">📰</span> Poster presentation accepted at ASCB conference.</li>
+              <li class="older-news hidden"><span class="news-icon">📰</span> Journal club starting again next month!</li>
+            </ul>
 
-          <h3 class="section-heading">Fellowships</h3>
-          <ul class="custom-bullets fellowships">
-            <li>NSF Graduate Research Fellowship (2015–2018)</li>
-            <li>Harvard Merit Fellowship (2015–2017)</li>
-            <li>University of Chicago Dean’s Fellowship (2012–2014)</li>
-          </ul>
-        </article>
+            <button id="showMoreBtn">Show More News</button>
 
-        <article id="outreach">
-          <h3 class="section-heading">Conference Talks</h3>
-          <ul class="custom-bullets conference-talks">
-            <li>
-              <strong>Keynote:</strong> “AI in Biomedical Research” – NeuralNet Symposium, 2024.
-            </li>
-            <li>
-              <strong>Panel Speaker:</strong> “Ethics of Human Genomics” – Global Bioethics Summit, 2023.
-            </li>
-          </ul>
-          <h3 class="section-heading">Scientific Writing Competitions</h3>
-          <div class="research-project">
-            <div class="research-title">"Genes & Ink": Award-Winning Essay on Genetic Ethics</div>
-            <div class="research-content expanded"> <!-- Add 'expanded' to always show full content -->
-              <div class="research-text">
-                <p>
-                  This essay explores the ethical frontiers of CRISPR technology and gene editing in modern medicine, highlighting personal stories and scientific responsibility.
-                </p>
-                <ul class="research-desc-bullets">
-                  <li>1st Prize, National Scientific Writing Competition (2024)</li>
-                  <li>Theme: "Genomics and Society"</li>
-                  <li>Selected among 500+ entries from across the country</li>
-                </ul>
+          </article>
 
-                <div class="research-refs-title">Published In</div>
-                <ul class="research-refs">
-                  <li><a href="https://example.com/essay-link" target="_blank">Genomics Today, April 2024</a></li>
-                </ul>
-              </div>
-              <img src="../images/writing-competition.jpg" class="research-img" alt="Writing Competition">
+          <article id="education">
+            <ul class="education-list">
+              <li>
+                <span class="edu-icon">🎓</span>
+                <div class="edu-details">
+                  <strong>Ph.D. in Molecular Biology</strong><br>
+                  Department of Genetics, Harvard University<br>
+                  <span class="edu-year">2015 – 2020</span>
+                </div>
+              </li>
+
+              <li>
+                <span class="edu-icon">📘</span>
+                <div class="edu-details">
+                  <strong>M.Sc. in Biotechnology</strong><br>
+                  School of Life Sciences, University of Chicago<br>
+                  <span class="edu-year">2012 – 2014</span>
+                </div>
+              </li>
+
+              <li>
+                <span class="edu-icon">📗</span>
+                <div class="edu-details">
+                  <strong>B.Sc. in Biochemistry</strong><br>
+                  Department of Biological Sciences, UC Berkeley<br>
+                  <span class="edu-year">2008 – 2012</span>
+                </div>
+              </li>
+            </ul>
+          </article>
+
+          <article id="experience">
+            <h3 class="section-heading">Teaching Experience</h3>
+            <ul class="fancy-bullets">
+              <li>Graduate Teaching Assistant – Harvard University (2016–2020)</li>
+              <li>Guest Lecturer – Advanced Molecular Biology, Harvard University (Spring 2019)</li>
+            </ul>
+          </article>
+
+          <article id="research">
+            <div class="research-filters">
+              <button class="research-filter active" data-category="all">All</button>
+              <button class="research-filter" data-category="ongoing">Ongoing</button>
+              <button class="research-filter" data-category="wetlab">Wetlab</button>
+              <button class="research-filter" data-category="computational">Computational</button>
             </div>
-          </div>
-        </article>
-      </main>
+            <div id="research-projects" class="research-projects">
+              <!-- Projects will be dynamically loaded here -->
+            </div>
+          </article>
+
+          <article id="publications">
+            <!-- <div class="pub-filters">
+              <button class="pub-filter active" data-category="all">All</button>
+              <button class="pub-filter" data-category="journal">Journal</button>
+              <button class="pub-filter" data-category="conference">Conference</button>
+            </div> -->
+
+            <ol id="publication-list" class="publication-list">
+              <!-- Publications will be dynamically inserted here -->
+            </ol>
+          </article>
+
+          <article id="achievements">
+            <h3 class="section-heading">Awards</h3>
+            <ul class="custom-bullets awards">
+              <li>NIH Early Career Innovator Award (2023)</li>
+              <li>Jane Coffin Childs Memorial Fund Postdoctoral Award (2021)</li>
+              <li>Best Paper Award – ISMB Conference (2020)</li>
+            </ul>
+
+            <h3 class="section-heading">Fellowships</h3>
+            <ul class="custom-bullets fellowships">
+              <li>NSF Graduate Research Fellowship (2015–2018)</li>
+              <li>Harvard Merit Fellowship (2015–2017)</li>
+              <li>University of Chicago Dean’s Fellowship (2012–2014)</li>
+            </ul>
+          </article>
+
+          <article id="outreach">
+            <h3 class="section-heading">Conference Talks</h3>
+            <ul class="custom-bullets conference-talks">
+              <li>
+                <strong>Keynote:</strong> “AI in Biomedical Research” – NeuralNet Symposium, 2024.
+              </li>
+              <li>
+                <strong>Panel Speaker:</strong> “Ethics of Human Genomics” – Global Bioethics Summit, 2023.
+              </li>
+            </ul>
+            <h3 class="section-heading">Scientific Writing Competitions</h3>
+            <div class="research-project">
+              <div class="research-title">"Genes & Ink": Award-Winning Essay on Genetic Ethics</div>
+              <div class="research-content expanded"> <!-- Add 'expanded' to always show full content -->
+                <div class="research-text">
+                  <p>
+                    This essay explores the ethical frontiers of CRISPR technology and gene editing in modern medicine, highlighting personal stories and scientific responsibility.
+                  </p>
+                  <ul class="research-desc-bullets">
+                    <li>1st Prize, National Scientific Writing Competition (2024)</li>
+                    <li>Theme: "Genomics and Society"</li>
+                    <li>Selected among 500+ entries from across the country</li>
+                  </ul>
+
+                  <div class="research-refs-title">Published In</div>
+                  <ul class="research-refs">
+                    <li><a href="https://example.com/essay-link" target="_blank">Genomics Today, April 2024</a></li>
+                  </ul>
+                </div>
+                <img src="../images/writing-competition.jpg" class="research-img" alt="Writing Competition">
+              </div>
+            </div>
+          </article>
+        </main>
+      </div>
     </div>
   </div>
 
