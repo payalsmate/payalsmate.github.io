@@ -162,7 +162,7 @@ body {
   flex: 1;
   background: var(--main-bg);
   border-radius: clamp(12px, 2vw, 20px);  /* Responsive rounding */
-  padding: clamp(0.5rem, 0.7vw, 1rem) clamp(0.5rem, 3vw, 2rem); 
+  padding: clamp(0.5rem, 0.7vw, 1rem) clamp(0.5rem, 2.5vw, 1.5rem); 
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -566,7 +566,7 @@ nav button.active {
   gap: 15px;
   background: linear-gradient(to right, #f8f9fa, #f1f9ff);
   border-radius: 12px;
-  padding: 16px 20px;
+  padding: 6px 10px;
   margin-bottom: 20px;
   position: relative;
   box-shadow: 
@@ -588,14 +588,16 @@ nav button.active {
   background: var(--navy);
   color: white;
   font-weight: bold;
-  width: 30px;
-  height: 30px;
+  width: clamp(20px, 4vw, 28px);
+  height: clamp(20px, 4vw, 28px);
   border-radius: 50%;
   text-align: center;
-  line-height: 30px;
-  font-size: var(--fs-base);
+  line-height: clamp(20px, 4vw, 28px);
+  font-size: var(--fs-s2); /* small responsive text size */
   flex-shrink: 0;
   box-shadow: 0 0 0 2px white;
+  margin-left: 0; /* flush to edge */
+  margin-right: 0px; /* keep a bit of space before text */
 }
 
 /* Text content */
@@ -686,22 +688,27 @@ nav button.active {
 /*Side bar */
 @media (min-width: 769px) {
   .content-wrapper {
+    display: flex;
+    /*align-items: stretch;*/
+    min-height: calc(75vh); /* Ensure full viewport height */
     flex-direction: row;
-    align-items: stretch;
   }
 
-   .sidebar {
-    flex: 0 0 20%; /* Sidebar takes up 25% of the wrapper */
-    max-width: 300px; /* Optional: prevent it from growing too wide */
+  .sidebar {
+    flex: 0 0 20%;
+    max-width: 300px;
+    height: 75vh; /* Full height of viewport */
+    display: flex;
+    flex-direction: column; /* In case you want internal layout */
+    overflow: hidden;
   }
 
   .main-panel {
-    flex: 1; /* Remainder of space */
-  }
-
-  .sidebar,
-  .main-panel {
-    height: auto;
+    flex: 1;
+    min-height: 100%; /* Ensure at least full screen */
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
   }
 
   .sidebar-header {
@@ -821,15 +828,16 @@ nav button.active {
     /* Keep it as a row layout */
     flex-direction: row;
     align-items: flex-start;
-    padding: 10px 14px;
-    gap: 10px;
+    padding: 4px 8px;
+    gap: 4px;
   }
 
   .pub-number {
-    width: 26px;
-    height: 26px;
-    font-size: 0.75rem;
-    line-height: 26px;
+    width: 22px;
+    height: 22px;
+    line-height: 22px;
+    font-size: 0.65rem;
+    margin-right: 3px;
     flex-shrink: 0;
   }
 
