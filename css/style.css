@@ -163,7 +163,7 @@ body {
   flex: 1;
   background: var(--main-bg);
   border-radius: clamp(12px, 2vw, 20px);  /* Responsive rounding */
-  padding: clamp(0.5rem, 0.7vw, 1rem) clamp(0.5rem, 2.5vw, 1.5rem); 
+  padding: clamp(0.5rem, 0.7vw, 1rem) clamp(0.5rem, 2.5vw, 1.2rem); 
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -207,7 +207,7 @@ body {
   display: flex;
   gap: 3px;
   background-color: var(--nav-light);
-  padding: 9px 12px;
+  padding: 9px 5px;
   border-radius: 15px;
   box-shadow: 2px 2px 6px var(--nav-dark);
   border: 1px solid var(--navy);
@@ -223,7 +223,7 @@ nav button {
   cursor: pointer;
   transition: 0.3s;
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
-  font-size: var(--fs-s2);
+  font-size: var(--fs-s1);
 }
 
 nav button:hover {
@@ -696,7 +696,7 @@ nav button.active {
   }
 
   .sidebar {
-    flex: 0 0 20%;
+    flex: 0 0 17.5%;
     max-width: 300px;
     height: 75vh; /* Full height of viewport */
     display: flex;
@@ -778,6 +778,14 @@ nav button.active {
 
   .page-wrapper {
     flex-direction: column;
+  }
+
+  .page-header {
+    height: clamp(20px, 5vw, 80px);
+  }
+
+  .lab-banner {
+    height: clamp(20px, 5vw, 80px);
   }
 
   .sidebar-header {
