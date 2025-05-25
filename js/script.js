@@ -1,3 +1,9 @@
+// element toggle function
+const elementToggleFunc = function (elem) {
+  elem.classList.toggle("active");
+};
+
+// Article related
 function showArticle(id, event) {
   // Hide all articles
   document.querySelectorAll('.content article').forEach(article => {
@@ -36,6 +42,23 @@ window.onload = () => {
   defaultArticle.classList.add('active');
 };
 
+const toggleBtn = document.querySelector('.sidebar-toggle');
+const sidebarDetails = document.querySelector('.sidebar-details');
+const chevron = toggleBtn.querySelector('ion-icon');
+
+// Toggle sidebar details
+toggleBtn.addEventListener('click', () => {
+  const isVisible = sidebarDetails.style.display === 'block';
+
+  if (isVisible) {
+    sidebarDetails.style.display = 'none';
+    chevron.style.transform = 'rotate(0deg)';
+  } else {
+    sidebarDetails.style.display = 'block';
+    chevron.style.transform = 'rotate(180deg)';
+  }
+});
+ 
 document.getElementById("showMoreBtn").addEventListener("click", function () {
   const olderNews = document.querySelectorAll(".older-news");
   olderNews.forEach(item => item.classList.toggle("hidden"));

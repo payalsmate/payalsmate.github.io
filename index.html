@@ -9,11 +9,20 @@
 <body>
   <div class="page-wrapper">
     <aside class="sidebar">
-      <img src="../images/profile.jpg" alt="Profile Picture" />
-      <h2>Dr. Jane Doe</h2>
-      <p><strong>Email:</strong> jane.doe@example.edu</p>
-      <p><strong>Affiliation:</strong> Example University</p>
+      <div class="sidebar-header">
+        <img src="../images/profile.jpg" alt="Profile Picture" />
+        <div class="sidebar-name">Dr. Jane Doe</div>
+        <button class="sidebar-toggle" aria-label="Toggle Info">
+          <ion-icon name="chevron-down"></ion-icon>
+          <span class="toggle-label">Show Contacts</span>
+        </button>
+      </div>
+      <div class="sidebar-details">
+        <p><strong>Email:</strong> jane.doe@example.edu</p>
+        <p><strong>Affiliation:</strong> Example University</p>
+      </div>
     </aside>
+
 
     <div class="main-panel">
       <header></header>
@@ -127,7 +136,7 @@
         </article>
 
         <article id="achievements">
-         <h3 class="section-heading">Awards</h3>
+          <h3 class="section-heading">Awards</h3>
           <ul class="custom-bullets awards">
             <li>NIH Early Career Innovator Award (2023)</li>
             <li>Jane Coffin Childs Memorial Fund Postdoctoral Award (2021)</li>
@@ -182,5 +191,8 @@
   <script src="js/script.js"></script>
   <script src="js/research.js"></script>
   <script src="js/publications.js"></script>
+
+  <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
