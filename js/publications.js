@@ -1,36 +1,41 @@
-let publications = [];
+//shared publicationData for use in other JS scripts
+window.publicationsData = {
+  publications: [],
+  ready: null,
+};
 
-fetch('../data/publications.json')
+window.publicationsData.ready = fetch('../data/publications.json')
   .then(res => {
     if (!res.ok) throw new Error("Failed to load publications.json");
     return res.json();
   })
   .then(data => {
-    console.log("Loaded publications:", data); // ✅ Debug here
-    publications = data;
-    loadPublications("all");
+    console.log("Loaded publications:", data);
+    window.publicationsData.publications = data;
   })
   .catch(err => {
     console.error("Error loading publications:", err);
   });
 
+// Your existing loadPublications() function stays here for UI rendering of publications separately
 
 function loadPublications(category = "all") {
   const list = document.getElementById("publication-list");
   list.innerHTML = "";
 
   const filtered = category === "all"
-    ? publications
-    : publications.filter(pub => pub.category === category);
+    ? window.publicationsData.publications
+    : window.publicationsData.publications.filter(pub => pub.category === category);
 
-  // No need to reverse array
   const count = filtered.length;
 
   filtered.forEach((pub, index) => {
     const item = document.createElement("li");
-
-    // Calculate reverse number
     const number = count - index;
+
+    const linkHTML = pub.link
+      ? `<a class="pub-link" href="${pub.link}" target="_blank">View PDF</a>`
+      : "";
 
     item.innerHTML = `
       <div class="pub-number">${number}</div>
@@ -38,14 +43,15 @@ function loadPublications(category = "all") {
         <strong>${pub.title}</strong><br>
         <span>${pub.authors}</span><br>
         <em>${pub.journal} (${pub.year})</em><br>
-        <a class="pub-link" href="${pub.link}" target="_blank">View PDF</a>
+        ${linkHTML}
       </div>
     `;
     list.appendChild(item);
   });
 }
 
-// Event Listeners
+// Event Listeners remain unchanged
+
 document.querySelectorAll(".pub-filter").forEach(button => {
   button.addEventListener("click", () => {
     document.querySelectorAll(".pub-filter").forEach(btn => btn.classList.remove("active"));
@@ -56,5 +62,7 @@ document.querySelectorAll(".pub-filter").forEach(button => {
   });
 });
 
-// Initial load
-loadPublications("all");
+// Wait for publications data to load, then initial load
+window.publicationsData.ready.then(() => {
+  loadPublications("all");
+});

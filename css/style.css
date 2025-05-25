@@ -36,6 +36,15 @@ body {
   background-color: #f5faff;
 }
 
+p {
+  line-height: 1.4; /* Adjust as needed, 1.5–1.8 is commonly good for readability */
+  text-align: justify;
+}
+
+.contact-info p {
+  text-align: center;
+}
+
 .page-wrapper {
   display: flex;
   flex-direction: column;
@@ -158,6 +167,73 @@ body {
 .sidebar.expanded .sidebar-toggle {
   display: none;
 }
+
+.sidebar-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact-info p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Buttons group styling */
+.profile-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Shared style for all profile buttons */
+.cv-button,
+.profile-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  padding: 6px 10px;
+  background-color: #4a76a8;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 5px;
+  font-size: 0.95em;
+  transition: background-color 0.3s ease;
+}
+
+.cv-button:hover,
+.profile-button:hover {
+  background-color: #3b5f8f;
+}
+
+/* Custom icons */
+.cv-button ion-icon,
+.profile-button ion-icon {
+  font-size: 1.2em;
+}
+
+/* Optional: Add unique colors (if desired) */
+.profile-button.scholar {
+  background-color: #4285f4; /* Google Blue */
+}
+
+.profile-button.scholar:hover {
+  background-color: #3367d6;
+}
+
+.profile-button.linkedin {
+  background-color: #0077b5;
+}
+
+.profile-button.linkedin:hover {
+  background-color: #005f91;
+}
+
+
+/* Main panel*/
 
 .main-panel {
   flex: 1;
@@ -452,9 +528,10 @@ nav button.active {
 }
 
 .research-text {
-  flex: 1;
-  min-width: 250px;
+  flex: 1 1 70%; /* Grow and shrink, base width 70% */
+  min-width: 200px; /* prevent text from getting too narrow */
   font-size: var(--fs-base);
+  text-align: justify;
 }
 
 .research-desc-bullets {
@@ -491,21 +568,16 @@ nav button.active {
   list-style: disc;
 }
 
-/*.research-img {
-  width: 300px;
-  height: auto;
-  border-radius: 12px;
-  object-fit: cover;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}*/
-
 .research-img {
-  width: 250px;
-  height: 150px;
+  flex: 0 0 25%; /* fixed base width 25%, no grow */
+  max-width: 250px; /* cap image width */
+  max-height: 200px;
   object-fit: cover;
   border-radius: 12px;
-  flex-shrink: 0;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  width: 100%; /* fill the flex basis */
+  height: auto;
+  align-self: start; /* align image to top */
 }
 
 .toggle-btn {
@@ -626,6 +698,62 @@ nav button.active {
 }
 
 
+/* Teaching experience */
+.teaching-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.teaching-item {
+  position: relative;
+  padding-left: 1.5rem; /* Space for bullet */
+  margin-bottom: 1em;
+}
+
+.teaching-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.2em;
+  width: 0.75em;
+  height: 0.75em;
+  background: linear-gradient(135deg, #0077cc, #00bfff);
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Text and Layout Styling */
+.teaching-header {
+  font-size: var(--fs-base);
+  color: var(--navy, #003366);
+  margin-bottom: 0.25em;
+}
+
+.teaching-title {
+  font-weight: 600;
+}
+
+.teaching-course {
+  font-style: italic;
+  color: var(--dark-gray, #444);
+}
+
+.teaching-university {
+  font-weight: 500;
+  color: var(--gray, #555);
+  margin-bottom: 0.4em;
+  font-size: clamp(0.95rem, 1vw, 1.05rem);
+}
+
+.teaching-description {
+  margin: 0;
+  font-size: var(--fs-base);
+  line-height: 1.6;
+  color: #222;
+  text-align: justify;
+}
+
 /*Achievements */
 
 .custom-bullets {
@@ -663,6 +791,77 @@ nav button.active {
   background: linear-gradient(to right, #66ccff, #3399ff); /* blue gradient */
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
 }
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  border-radius: clamp(12px, 2vw, 20px);
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: var(--main-bg);
+  max-width: 800px;
+  width: 90%;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+  overflow-y: auto;
+  max-height: 90vh;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px; right: 15px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* You can reuse or slightly modify your research/project styles */
+.project-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.project-content {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.project-text {
+  flex: 1;
+  font-size: 1rem;
+}
+
+.project-img {
+  max-width: 250px;
+  border-radius: 8px;
+}
+
+.project-desc-bullets, .project-refs {
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+.project-refs-title {
+  margin-top: 20px;
+  font-weight: 600;
+}
+
 
 /* Outreach */
 
@@ -807,6 +1006,21 @@ nav button.active {
     display: none; /* Hidden initially */
   }
 
+  .profile-links {
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2px;
+  }
+
+  .profile-links a {
+    flex: 1 1 auto;
+    padding: 4px 7px;
+    font-size: 0.85em;
+    justify-content: center;
+    white-space: nowrap;
+  }
+
   .section-header-row nav {
     position: fixed;
     bottom: 0;
@@ -838,6 +1052,11 @@ nav button.active {
     padding-bottom: 70px; /* Space for bottom nav */
   }
 
+
+  .research-content{    
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  }
+
   .publication-list li {
     /* Keep it as a row layout */
     flex-direction: row;
@@ -862,6 +1081,16 @@ nav button.active {
   .pub-link {
     font-size: 0.75rem;
     padding: 4px 6px;
+  }
+
+  .teaching-item {
+    padding-left: 1.5rem;
+  }
+
+  .teaching-item::before {
+    width: 0.6em;
+    height: 0.6em;
+    top: 0.5em;
   }
 
 }

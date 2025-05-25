@@ -59,10 +59,43 @@ toggleBtn.addEventListener('click', () => {
   }
 });
  
-document.getElementById("showMoreBtn").addEventListener("click", function () {
-  const olderNews = document.querySelectorAll(".older-news");
-  olderNews.forEach(item => item.classList.toggle("hidden"));
-  this.textContent = this.textContent === "Show More News" ? "Show Less" : "Show More News";
+// document.getElementById("showMoreBtn").addEventListener("click", function () {
+//   const olderNews = document.querySelectorAll(".older-news");
+//   olderNews.forEach(item => item.classList.toggle("hidden"));
+//   this.textContent = this.textContent === "Show More News" ? "Show Less" : "Show More News";
+// });
+
+
+const showMoreBtn = document.getElementById("showMoreBtn");
+const newsItems = document.querySelectorAll(".news-list li");
+const totalItems = newsItems.length;
+let visibleCount = 5; // Initially show first 5
+
+// Hide all except the first 5
+newsItems.forEach((item, index) => {
+  item.style.display = index < visibleCount ? "list-item" : "none";
+});
+
+showMoreBtn.addEventListener("click", function () {
+  if (visibleCount >= totalItems) {
+    // Collapse all back to 5
+    visibleCount = 5;
+    newsItems.forEach((item, index) => {
+      item.style.display = index < visibleCount ? "list-item" : "none";
+    });
+    this.textContent = "Show More News";
+  } else {
+    // Show next 5 items
+    const nextCount = Math.min(visibleCount + 5, totalItems);
+    for (let i = visibleCount; i < nextCount; i++) {
+      newsItems[i].style.display = "list-item";
+    }
+    visibleCount = nextCount;
+
+    if (visibleCount >= totalItems) {
+      this.textContent = "Show Less";
+    }
+  }
 });
 
 

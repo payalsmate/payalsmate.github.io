@@ -1,0 +1,37 @@
+[
+  {
+    "category": ["ongoing", "drug-discovery"],
+    "title": "Predictive Modeling of Breast Cancer Inhibitors via Deep Learning",
+    "description": ["In this study, we are using deep learning models to identify novel inhibitors for breast cancer targets, Known inhibitors will train predictive models to screen virtual libraries and generate new compounds. Top candidates will be validated through molecular docking, dynamics simulations, and pharmacophore analysis, highlighting deep learning’s potential in accelerating targeted breast cancer drug discovery."],
+    "image": ""
+  },
+  {
+    "category": ["drug-discovery"],
+    "title": "In Vitro Assessment of Zingerone as an Aquaporin 9 Inhibitor",
+    "description": ["This study investigates the therapeutic potential of zingerone, a bioactive compound derived from ginger, in modulating Aquaporin 9 (AQP9) expression in a hepatic steatosis model using Hepa1-6 cells. Steatosis was induced in vitro to mimic fatty liver conditions, followed by treatment with zingerone. Cell viability was evaluated using the MTT assay. The effect of zingerone on AQP9 gene expression was quantified via RT-qPCR, while lipid accumulation was assessed using Oil Red O staining. Confocal microscopy was employed to determine the subcellular localization of AQP9, revealing changes in membrane distribution upon treatment. The findings suggest that zingerone exerts a protective effects against steatosis by downregulating AQP9 and reducing intracellular lipid accumulation, highlighting its potential as a candidate for managing fatty liver disease."],
+    "references": ["zingerone_aqp9_inhibitor"],
+    "image": "../images/zingerone_control_under_review.png"
+  },
+  {
+    "category": ["genomics"],
+    "title": "Aquaporins in Buffalo Hepatic and Adipose Tissue Across Seasons: Expression, Localization, and Biochemical Insight ",
+    "description": ["We investigated the seasonal dynamics of aquaporin expression and immunolocalization in buffalo liver and adipose tissues, alongside key biochemical indices. We analyzed samples across different seasons usin following techniques: ",
+      {
+        "list": [
+          "RT-qPCR, Protein extraction, Dot blot, SDS-PAGE, Western blotting, ELISA, Oil-red-o staining, Immunohistochemistry."
+        ]
+      }, 
+      "We observed significant variations in aquaporin expression patterns and tissue-specific localization. These changes were found to correlate with fluctuations in physiological stress markers and heat-responsive genes, suggesting a role for aquaporins in mediating cellular water balance and metabolic adaptation under thermal stress. The findings provide insights into the molecular and biochemical responses of buffalo to seasonal heat variations, with potential implications for livestock management and climate resilience."],
+    "references": ["aqp_expression"],
+    "image": "../images/AQPs_in_buffalo_liver_adipose.png"
+  },
+  {
+    "category": ["genomics"],
+    "title": "Alteration of Glycaemic Index and Digestive Behavior of Wheat Starch by Fenugreek-Derived Bioactives",
+    "description": [
+      "In this study, the glycaemic index (GI) of selected wheat (Triticum aestivum L.) cultivars was evaluated to assess their potential impact on postprandial blood glucose levels. To investigate functional modifications, aqueous extracts of fenugreek (Trigonella foenum-graecum L.) seeds—known for their hypoglycaemic and bioactive properties—were applied to the wheat starch. The effect of fenugreek seed extract on in vitro starch digestibility was analyzed using enzymatic hydrolysis models simulating gastrointestinal conditions. Additionally, physical and structural changes in the starch granules were characterized through techniques such as scanning electron microscopy and thermal analysis. Results indicated a notable reduction in the predicted GI and starch hydrolysis rate upon treatment with fenugreek extract, suggesting its potential as a natural additive to develop low-GI wheat-based functional foods."
+    ],
+    "references": ["wheat_fenugreek_msc"],
+    "image": "../images/wheat_starch_granuels_SEM.jpg"
+  }
+]

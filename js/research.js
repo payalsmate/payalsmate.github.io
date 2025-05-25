@@ -1,38 +1,22 @@
-const researchProjects = [
-  {
-    category: ["ongoing", "computational"],
-    title: "Predicting Gene Expression Patterns",
-    description: ["We use machine learning to model gene expression dynamics in early development."],
-    references: ["Doe et al., Bioinformatics 2024", "Smith et al., Nature 2023"],
-    image: "../images/project1.jpg"
-  },
-  {
-    category: ["wetlab"],
-    title: "In Vivo Imaging of Developmental Stages",
-    description: ["Using advanced microscopy to track real-time development in zebrafish."],
-    references: ["Chen et al., Cell 2022"],
-    image: "../images/project2.jpg"
-  },
-  {
-    category: ["wetlab"],
-    title: "Stem Cell Fate Mapping",
-    description: [
-      "We investigate how stem cells decide between different tissue types.",
-      {
-        list: [
-          "Use of CRISPR lineage tracing",
-          "Single-cell RNA-seq analysis",
-          "Live imaging validation",
-          "Live imaging validation",
-          "Live imaging validation",
-          "Live imaging validation"
-        ]
-      }
-    ],
-    references: ["Lee et al., Nature 2024"],
-    image: "../images/project2.jpg"
-  }
-];
+let researchProjects = [];
+
+fetch('../data/research.json')
+  .then(res => {
+    if (!res.ok) throw new Error("Failed to load research.json");
+    return res.json();
+  })
+  .then(data => {
+    researchProjects = data;
+    // Wait for publications to load first
+    return window.publicationsData?.ready ?? Promise.resolve();
+  })
+  .then(() => {
+    // Now publications are loaded, render research
+    renderResearch("all");
+  })
+  .catch(err => {
+    console.error("Error loading research projects or publications:", err);
+  });
 
 function renderResearch(category = "all") {
   const container = document.getElementById("research-projects");
@@ -48,6 +32,7 @@ function renderResearch(category = "all") {
     panel.dataset.index = index;
     panel.dataset.expanded = "false";
 
+    // Build description HTML
     let descHTML = "";
     if (Array.isArray(project.description)) {
       project.description.forEach(block => {
@@ -62,10 +47,35 @@ function renderResearch(category = "all") {
       descHTML = `<p>${project.description}</p>`;
     }
 
-    const refItems = project.references.map(ref => `<li>${ref}</li>`).join("");
-    const refHTML = project.references.length
-      ? `<div class="research-refs-title">References</div>
-         <ul class="research-refs">${refItems}</ul>`
+    // Map reference IDs to publication entries and generate links
+    let refHTML = "";
+    if (project.references && project.references.length > 0) {
+      // Filter out empty or invalid refs
+      const validRefs = project.references.filter(ref => ref.trim() !== "");
+      
+      if (validRefs.length > 0) {
+        // Create list items with links to publication titles
+        const refListItems = validRefs.map(refId => {
+          const pub = window.publicationsData.publications.find(pub => pub.id === refId);
+          if (pub) {
+            const title = pub.title || "Untitled";
+            const link = pub.link || "#";
+            return `<li><a href="${link}" target="_blank" rel="noopener noreferrer">${title}</a> — <em>${pub.journal}, ${pub.year}.</em></li>`;
+          } else {
+            // If no publication found for this id, show id text
+            return `<li>${refId}</li>`;
+          }
+        }).join("");
+
+        refHTML = `
+          <div class="research-refs-title">References</div>
+          <ul class="research-refs">${refListItems}</ul>
+        `;
+      }
+    }
+
+    const imgHTML = project.image
+      ? `<img src="${project.image}" class="research-img" alt="Project image">`
       : "";
 
     panel.innerHTML = `
@@ -75,7 +85,7 @@ function renderResearch(category = "all") {
           ${descHTML}
           ${refHTML}
         </div>
-        <img src="${project.image}" class="research-img" alt="Project image">
+        ${imgHTML}
       </div>
     `;
 
@@ -113,7 +123,6 @@ function renderResearch(category = "all") {
     maybeAddToggle();
 
     container.appendChild(panel);
-
   });
 }
 
@@ -125,6 +134,3 @@ document.querySelectorAll(".research-filter").forEach(button => {
     renderResearch(button.dataset.category);
   });
 });
-
-// Initial load
-renderResearch("all");
