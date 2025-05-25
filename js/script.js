@@ -64,3 +64,5 @@ document.getElementById("showMoreBtn").addEventListener("click", function () {
   olderNews.forEach(item => item.classList.toggle("hidden"));
   this.textContent = this.textContent === "Show More News" ? "Show Less" : "Show More News";
 });
+
+
