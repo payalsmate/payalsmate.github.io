@@ -823,7 +823,7 @@ nav button.active {
     padding: 0.3rem 0.2rem;
     border-radius: 5px;
     margin: 0 2px;
-    font-size: var(--fs-s3);
+    font-size: var(--fs-s2);
   }
 
   .main-panel {
