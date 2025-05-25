@@ -60,7 +60,7 @@ body {
 /* Place elements into grid areas */
 .page-header {
   width: 100%;
-  height: clamp(40px, 15vw, 80px);
+  height: clamp(20px, 10vw, 80px);
   margin-bottom: clamp(0.25rem, 0.5vw, 0.5rem);
   overflow: hidden;
 }
@@ -68,7 +68,7 @@ body {
 
 .lab-banner {
   width: 100%;
-  height: clamp(40px, 15vw, 80px);
+  height: clamp(20px, 10vw, 80px);
   display: block;
   border-radius: clamp(8px, 1vw, 20px);
   object-fit: cover;
@@ -820,7 +820,7 @@ nav button.active {
 
   nav button {
     flex: 1;
-    padding: 0.3rem 0.2rem;
+    padding: 0.3rem 0.3rem;
     border-radius: 5px;
     margin: 0 2px;
     font-size: var(--fs-s2);
