@@ -823,11 +823,33 @@ nav button.active {
 
 .modal-close {
   position: absolute;
-  top: 10px; right: 15px;
-  background: none;
-  border: none;
-  font-size: 24px;
+  top: clamp(4px, 1.2vw, 8px);
+  right: clamp(4px, 1.2vw, 8px);
+
+  background: white;
+  color: black;
+
+  border: 2px solid #ccc;
+  border-radius: 20%;
+
+  width: clamp(24px, 4.5vw, 35px);
+  height: clamp(24px, 4.5vw, 35px);
+
+  font-size: clamp(16px, 4vw, 22px);
+  line-height: 1;
+  text-align: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background 0.2s ease;
+}
+
+.modal-close:hover {
+  background: #f0f0f0;
 }
 
 /* You can reuse or slightly modify your research/project styles */
@@ -1103,13 +1125,6 @@ nav button.active {
     width: 0.6em;
     height: 0.6em;
     top: 0.5em;
-  }
-
-  .modal-content {
-    max-width: 95vw; /* nearly full viewport width on small screens */
-    width: 95vw;     /* make sure width is smaller than viewport */
-    max-height: 80vh; /* limit height for better mobile usability */
-    padding: 15px;   /* slightly smaller padding on mobile */
   }
 
 }
