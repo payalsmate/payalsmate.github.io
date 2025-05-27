@@ -7,7 +7,7 @@ const competitionDetails = {
     references: [
       {
         "title": "Diving in the Pool of Water Channels",
-        "link": "../publication/article/awsar_dbt_2023.pdf"
+        "link": "../publication/article/awsar_story.pdf"
       }
     ],
     image: "../images/AWSAR_AQP.png"
@@ -20,13 +20,29 @@ function alignModalWithMainPanel() {
 
   const rect = mainPanel.getBoundingClientRect();
 
-  modal.style.position = "absolute";
-  modal.style.top = `${rect.top + window.scrollY}px`;
-  modal.style.left = `${rect.left + window.scrollX}px`;
-  modal.style.width = `${rect.width}px`;
-  modal.style.height = `${rect.height}px`;
-}
+  const marginX = rect.width * 0.02;   // 1% horizontal margin
+  const maxHeight = rect.height * 0.8; // 80% max height
+  const paddingX = rect.width*0.02;
+  const paddingY = paddingX
 
+  modal.style.position = "absolute";
+  modal.style.left = `${rect.left + window.scrollX + marginX}px`;
+  modal.style.width = `${rect.width - 4 * marginX}px`;
+
+  modal.style.height = "auto";
+  modal.style.maxHeight = `${maxHeight}px`;
+  modal.style.overflowY = "auto";
+  modal.style.padding = `${paddingY}px ${paddingX}px`
+
+  // Defer centering until after height is calculated
+  requestAnimationFrame(() => {
+    const modalHeight = modal.offsetHeight;
+    const top = rect.top + window.scrollY + (rect.height - modalHeight) / 2;
+
+    // Make sure it doesn't go above the top of the panel
+    modal.style.top = `${Math.max(rect.top + window.scrollY, top)}px`;
+  });
+}
 
 function renderCompetitionModal(id) {
   const data = competitionDetails[id];
@@ -83,3 +99,6 @@ document.querySelectorAll(".competition-link").forEach(link => {
 document.querySelector(".modal-close").addEventListener("click", () => {
   document.getElementById("competition-modal").classList.add("hidden");
 });
+
+//If window resizes while modal is open, resize the modal
+window.addEventListener("resize", () => alignModalWithMainPanel(0.05));

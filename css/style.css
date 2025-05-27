@@ -803,6 +803,7 @@ nav button.active {
   align-items: center;
   z-index: 1000;
   border-radius: clamp(12px, 2vw, 20px);
+  padding: 1%;
 }
 
 .modal.hidden {
@@ -840,6 +841,7 @@ nav button.active {
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
+  align-items: flex-start;
 }
 
 .project-text {
@@ -847,9 +849,19 @@ nav button.active {
   font-size: 1rem;
 }
 
+.project-text > *:first-child {
+  margin-top: 0; /* no gap above first element */
+}
+
 .project-img {
   max-width: 250px;
+  max-height: 300px; /* or clamp(...) or a percentage */
+  width: auto;
+  height: auto;
+  object-fit: contain; /* or cover, depending on what you want */
   border-radius: 8px;
+  flex-shrink: 0; /* prevent image from shrinking */
+  align-self: flex-start; /* prevents vertical stretch */
 }
 
 .project-desc-bullets, .project-refs {

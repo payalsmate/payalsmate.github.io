@@ -59,8 +59,15 @@ function renderResearch(category = "all") {
           const pub = window.publicationsData.publications.find(pub => pub.id === refId);
           if (pub) {
             const title = pub.title || "Untitled";
-            const link = pub.link || "#";
-            return `<li><a href="${link}" target="_blank" rel="noopener noreferrer">${title}</a> — <em>${pub.journal}, ${pub.year}.</em></li>`;
+            const link = pub.link;
+            const citation = `${title} — <em>${pub.journal}, ${pub.year}.</em>`;
+
+            if (typeof link === "string" && link.trim().length > 0) {
+              console.log("Pub link is not empty", pub.link)
+              return `<li><a href="${link}" target="_blank" rel="noopener noreferrer">${title}</a> — <em>${pub.journal}, ${pub.year}.</em></li>`;
+            } else {
+              return `<li>${citation}</li>`;
+            }
           } else {
             // If no publication found for this id, show id text
             return `<li>${refId}</li>`;
