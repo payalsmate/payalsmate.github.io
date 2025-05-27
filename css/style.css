@@ -1105,6 +1105,13 @@ nav button.active {
     top: 0.5em;
   }
 
+  .modal-content {
+    max-width: 95vw; /* nearly full viewport width on small screens */
+    width: 95vw;     /* make sure width is smaller than viewport */
+    max-height: 80vh; /* limit height for better mobile usability */
+    padding: 15px;   /* slightly smaller padding on mobile */
+  }
+
 }
 
 

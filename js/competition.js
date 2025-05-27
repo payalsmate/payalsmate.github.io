@@ -42,6 +42,17 @@ function alignModalWithMainPanel() {
     // Make sure it doesn't go above the top of the panel
     modal.style.top = `${Math.max(rect.top + window.scrollY, top)}px`;
   });
+
+  const modalContent = modal.querySelector(".modal-content");
+
+  // Wait for modal height to be calculated
+  requestAnimationFrame(() => {
+    const modalHeight = modal.offsetHeight;
+
+    // Give modal-content a max-height slightly less than modal container's height,
+    // accounting for padding/margin to avoid overflow
+    modalContent.style.maxHeight = `${modalHeight - 40}px`; // adjust 40 as needed for padding
+  });
 }
 
 function renderCompetitionModal(id) {
